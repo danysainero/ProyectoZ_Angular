@@ -1,0 +1,89 @@
+@import '../../../assets/styles/rem';
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/input'; //input & invalid input
+@import '../../../assets/styles/btn'; // btn & :after & :before
+
+/********************************************
+GLOBAL
+*********************************************/
+.box {
+  padding: rem(20px);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+legend {
+  display: none;
+}
+
+/********************************************
+TITLE
+*********************************************/
+.title {
+  margin: rem(2vh 0 10vh 0);
+  font-family: var(--ff-logo);
+  font-size: var(--ts-logo);
+  font-weight: var(--tx-thin);
+  color: var(--color-cream);
+}
+
+/********************************************
+FORM .form__input & btn import from styles
+*********************************************/
+.form {
+  width: 100%;
+
+  .form__label {
+    color: var(--color-dirty);
+    font-weight: var(--tx-normal);
+    font-size: var(--ts-l);
+    position: relative;
+  }
+
+}
+
+/*********Custom Radio buttons**************/
+.form__radiogroup {
+  width: 100%;
+}
+
+input[type=radio] {
+  position: absolute;
+  visibility: hidden;
+  display: none;
+
+  &:checked+label {
+    background: rgba(255, 218, 188, 0.151);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.438);
+    border-radius: rem(5px);
+
+    & svg {
+      fill: white;
+    }
+  }
+}
+
+.radio__label {
+  color: var(--color-gray);
+  display: inline-block;
+  font-weight: bold;
+  padding: rem(5px 8px);
+  margin-left: rem(20px);
+
+  & svg {
+    fill: rgba(139, 139, 139, 0.747);
+    height: rem(30px);
+    width: rem(30px);
+  }
+}
+
+/******** Join button Container ***************/
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+

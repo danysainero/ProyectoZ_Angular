@@ -1,0 +1,12 @@
+@import '../../../assets/styles/rem';
+@import '../../../assets/styles/variables';
+
+
+.empty{
+  height: rem(60px);
+}
+
+app-friends:nth-child(odd) .user{
+  background: #000;
+  border: 5px solid red;
+}

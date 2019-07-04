@@ -1,0 +1,40 @@
+@import '../../../assets/styles/rem';
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/input'; //input & invalid input
+@import '../../../assets/styles/btn'; // btn & :after & :before
+
+
+.container-landing {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: url('../../../assets/images/bg3.jpg') no-repeat;
+  background-size: cover;
+}
+
+.title {
+  font-family: var(--ff-logo);
+  margin-top: 20%;
+  font-size: var(--ts-logo);
+  color: var(--tx-color-logo);
+  font-weight: bold;
+}
+
+/********************************************
+ btn styles import from styles
+*********************************************/
+.btn-group {
+  width: 100%;
+  position: absolute;
+  bottom: rem(20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+

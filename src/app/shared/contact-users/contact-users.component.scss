@@ -1,0 +1,23 @@
+@import '../../../assets/styles/rem';
+@import '../../../assets/styles/variables';
+
+.box {   
+  margin-bottom: rem(10px);
+  background-color: rgba(255, 255, 255, 0.521);
+  padding: rem(10px);
+  width: 100%;  
+  height: rem(70px); 
+  display: inline-block;
+  }
+
+  .user {
+    display: flex;
+    justify-content: space-between;   
+    align-items: center;   
+    
+    & img {
+      height: 50px;
+      width: 50px;
+      border-radius:50%;
+       }
+  }

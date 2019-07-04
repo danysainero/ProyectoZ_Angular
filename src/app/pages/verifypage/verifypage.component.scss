@@ -1,0 +1,95 @@
+@import '../../../assets/styles/rem';
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/btn'; // btn & :after & :before
+
+
+/*******************************************
+WEBCAM CONTAINER & BUTTONS
+*******************************************/
+.empty{
+  background: #052C3E;
+  height: calc(100vh - 100px);
+  width: 100%;
+  position: absolute;
+  z-index: -2;
+  overflow: hidden;
+}
+.camera-container, .canvas-container{
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  margin-bottom: rem(150px);
+}
+
+.camera-display, .canvas-display{
+  position: absolute;
+  bottom: 0;   
+  left: 0;
+   width: 100vw;
+  margin-bottom: rem(50px);
+}
+
+
+.btn--camera{
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+/********************************
+BUTTONS CAMERA FOOTER
+*********************************/
+.camera__footer{
+  width: 100%;
+  height: rem(50px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+  position: absolute;
+  bottom: 0;
+  background: var(--color-night);
+  opacity: .5;
+}
+svg{
+  fill: white;
+  height: rem(30px);
+  width: rem(30px);
+}
+
+
+.hide{
+  visibility: hidden;
+}
+
+
+
+
+.input{
+  height: rem(50px);
+  width: rem(50px); 
+ 
+
+  &__file {
+    position: absolute;
+    left: 0;
+    height: rem(50px);
+    width: rem(70px);
+    opacity: 0;
+  }
+
+  &__custom{
+    height: rem(50px);
+    width: rem(50px);
+    
+  
+    svg{
+      height: rem(38px);
+      width: rem(35px);
+      margin-left: 5px;
+    margin-top: 4px;
+    }
+  }
+}

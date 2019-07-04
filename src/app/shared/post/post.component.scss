@@ -1,0 +1,100 @@
+@import '../../../assets/styles/rem';
+@import '../../../assets/styles/variables';
+
+.box {
+  margin-top: rem(15px);
+  border-radius: rem(10px);
+}
+
+.box--timeline {
+  background: rgba(226, 212, 211, 0.952);
+  padding: rem(15px);
+}
+
+/*************************************
+TIME LINE
+**************************************/
+
+/******NEWS HEADER***************************************************/
+
+.news__header {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  align-items: center;
+  height: rem(50px);
+  padding-bottom: rem(15px);
+  border-bottom: 2px solid var(--color-dirty);
+
+ 
+
+  .header__profile {
+    width: rem(50px);
+    height: rem(50px);
+    border-radius: 50%;
+    margin: rem(0 10px 0 0);
+    box-shadow: 1px 1px 2px black;
+  }
+    .header__date{
+    margin-left: auto;
+  }
+  .header__id{
+display: none;
+  }
+}
+
+/*************************
+  NEWS HEADER  Text, img & buttons
+  ***************************************************/
+.news__main {
+  margin-top: rem(10px);
+
+  p {
+    word-break: break-all;
+    font-weight: var(--tx-normal);
+    font-size: var(--ts-md);
+  }
+}
+
+.news__img img {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 200px;
+}
+
+.news__buttons {
+  display: flex;
+  justify-content: space-around;
+  width: rem(50px);
+
+  .news__like {
+    margin-top: rem(10px);
+    height: rem(25px);
+    width: rem(25px);
+    position: relative;
+    background: url(../../../assets/images/icons/hearts.png) no-repeat;
+    background-size: 100%;
+  }
+
+}
+
+.news__info {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(182, 182, 182, 0.336);
+  border-radius: rem(4px);
+
+  & p {
+    padding: rem(5px 10px);
+    width: 80%;
+  }
+}
+
+.like__counter {
+  position: absolute;
+  bottom: rem(10px);
+  right: rem(-10px);
+  color: orangered;
+  font-weight: var(--tx-fat);
+}

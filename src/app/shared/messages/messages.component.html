@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="message-user" (click)="showMessages($event)">
+    <img src="../../../assets/images/darylDixon.png" alt="">
+    <p>nombre del contacto</p>   
+  </div>
+  <div class="message-user__reply" *ngIf="showMessage">
+    <p>Lorem ipsum dolor sit amet,  voluptas aliquam itaque dolor nostrum
+    </p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, ullam tenetur. voluptas aliquam itaque dolor nostrum</p>
+    <p>consectetur adipisicing elit. Suscipit, ullam tenetur. </p>
+    <p>Lorem ipsum dolor sit amet,  voluptas aliquam itaque dolor nostrum
+   </p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, ullam tenetur. voluptas aliquam itaque dolor nostrum</p>
+   <p>consectetur adipisicing elit. Suscipit, ullam tenetur. </p>
+   <form [formGroup]="myForm" action="">
+     <div class="reply">
+       <label for="reply">
+         <input formControlName="text" type="text" id="reply">
+       </label>
+       <button type="button">Reply</button>
+     </div> 
+   </form>
+ </div>
+  
+ <div class="message-user" (click)="showMessages($event)">
+    <img src="../../../assets/images/darylDixon.png" alt="">
+    <p>nombre del contacto</p>
+  </div>
+  <div class="message-user__reply" *ngIf="showMessage">
+    <p>Lorem ipsum dolor sit amet,  voluptas aliquam itaque dolor nostrum
+    </p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, ullam tenetur. voluptas aliquam itaque dolor nostrum</p>
+    <p>consectetur adipisicing elit. Suscipit, ullam tenetur. </p>
+    <p>Lorem ipsum dolor sit amet,  voluptas aliquam itaque dolor nostrum
+   </p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, ullam tenetur. voluptas aliquam itaque dolor nostrum</p>
+   <p>consectetur adipisicing elit. Suscipit, ullam tenetur. </p>
+ </div>
+  <div class="message-user" (click)="showMessages($event)">
+    <img src="../../../assets/images/darylDixon.png" alt="">
+    <p>nombre del contacto</p>
+  </div>
+ 
+ 
+</div>

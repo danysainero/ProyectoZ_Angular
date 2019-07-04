@@ -1,0 +1,89 @@
+@import '../../../assets/styles/rem';
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/input'; //input & invalid input
+@import '../../../assets/styles/btn'; // btn & :after & :before
+
+.empty{
+    height: rem(50px);
+}
+
+
+/********************************************
+GLOBAL
+*********************************************/
+.box {
+  padding: rem(20px);
+  width: 100%;
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+legend {
+  display: none;
+}
+
+/********************************************
+FORM .form__input & btn import from styles
+*********************************************/
+.form {
+  width: 100%;
+
+  .form__label {
+    color: var(--color-dirty);
+    font-weight: var(--tx-normal);
+    font-size: var(--ts-l);
+    position: relative;
+  }
+
+  .form__input *{
+    padding-bottom: 0;
+  }
+  .form__input--faceId{
+    position: absolute;
+    width: 90%;
+    left: rem(20px);
+    padding-left: rem(65px);
+    
+  }
+
+}
+
+/*********Custom Radio buttons**************/
+
+
+
+
+
+/******** Join button Container ***************/
+.button-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.input{
+  height: rem(50px);
+  width: rem(50px); 
+
+  &__file {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: rem(50px);
+    width: rem(70px);
+    opacity: 0;
+    z-index: 10;
+  }
+
+  &__custom{ 
+  
+    svg{
+      height: rem(40px);
+    width: rem(40px);
+    margin-top: rem(10px);
+      fill: var(--color-dirty);
+    }
+  }
+}

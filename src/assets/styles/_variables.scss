@@ -1,0 +1,40 @@
+@import '../../assets/styles/rem';
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap');
+
+:root {
+
+  /************************ FONT FAMILY******************/
+     
+    --ff-logo: 'Amatic SC';
+
+    /************************ COLORS******************/
+    --color-night: #14141b;
+    --color-dark: #052C3E;
+    --color-dirty: #A58367;
+    --color-cream: #E2D4D3;
+    --color-logo: #052737;
+    --color-gray: #D8D8D8;
+    --color-error: #d42c2c94;
+
+/************************TEXT SIZES******************/
+
+
+--ts-logo: 66px;
+--ts-xs: 14px;
+--ts-s: 16px;
+--ts-md: 18px;
+--ts-l: 20px;
+--ts-xl: 28px;
+
+/************************TEXT WEIGHT******************/
+
+--tx-fat: 600;
+--tx-normal: 400;
+--tx-thin: 200;
+
+
+/************************INPUT STYLES******************/
+--input-h: 35px;
+--input-radius: 5px; 
+--input-bg:rgb(136, 136, 136);
+}

@@ -1,0 +1,89 @@
+@import '../../../assets/styles/rem';
+@import '../../../assets/styles/variables';
+
+
+
+.navbar {
+  background: var(--color-night);
+  position: fixed;
+  height: rem(50px);
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 9999;
+button {
+  -webkit-tap-highlight-color: rgba(165, 131, 103, 0.301);
+}
+  svg {
+    -webkit-tap-highlight-color: rgba(165, 131, 103, 0.301);
+    fill: rgba(229, 213, 212, 0.445);
+    height: rem(30px);
+    width: rem(30px);
+  }
+}
+
+/****************
+NEW POST BOX
+******************/
+
+.box {
+  position: fixed;
+  bottom: rem(50px);
+  width: 100%;
+  background-color: rgb(214, 211, 211);
+  padding: rem(5px);
+  box-shadow: 0px 0px 20px 0px black;
+}
+
+
+.form-newPost {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.newPost-text {
+  font-family: sans-serif;
+  overflow: auto !important;
+  max-height: 25vw;
+  font-size: var(--ts-md);
+  display: block;
+  padding: rem(10px);
+  width: 60vw;
+  margin: 0px auto;
+  border-radius: rem(6px);
+  box-shadow: 2px 2px 8px rgba(black, .3);
+  border: 0;
+}
+
+.btn {
+  background: transparent;
+  width: rem(45px);
+  height: rem(45px);
+  outline: none;
+}
+
+.input{
+  height: rem(50px);
+  width: rem(50px); 
+
+  &__file {
+    position: absolute;
+    left: 0;
+    height: rem(50px);
+    width: rem(70px);
+    opacity: 0;
+  }
+
+  &__custom{
+    height: rem(50px);
+    width: rem(50px);
+  
+    svg{
+      fill: var(--color-night);
+    }
+  }
+}
+

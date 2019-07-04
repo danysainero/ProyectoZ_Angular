@@ -1,0 +1,18 @@
+@import '../../../assets/styles/rem';
+@import '../../../assets/styles/variables';
+
+
+
+.container {   
+    height: auto;
+    width: 100%;
+    position: absolute;
+    top: rem(50px);
+    bottom: rem(45px);
+    overflow: hidden;
+  }
+
+  agm-map {
+    height: 800px;    
+    width: 100%;
+  }

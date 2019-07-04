@@ -1,0 +1,8 @@
+<app-myheader-profile></app-myheader-profile>
+
+<app-navbar></app-navbar>
+<div class="empty" aria-hidden="true"> </div>
+<app-search></app-search>
+<app-friends *ngFor="let user of arrayApiUsers; let i = index" [user]="user" [index]="i"></app-friends>
+
+<div class="empty" aria-hidden="true"> </div>

@@ -1,0 +1,76 @@
+@import '../../../assets/styles/rem';
+@import '../../../assets/styles/variables';
+
+.btn {
+    outline: none;
+    background-color: rgba(216, 216, 216, 0.205);
+    border: 1px solid rgb(158, 158, 158);
+    width: 150px;
+    height: 50px;
+    position: relative;
+    margin: rem(20px 0);
+    color: var(--color-cream);
+    -webkit-tap-highlight-color: rgba(165, 131, 103, 0.301);
+  
+    &::after, &::before {
+      content: '';
+      position: absolute;
+      outline: none;
+      background-color: rgba(216, 216, 216, 0.205);
+      border: 1px solid rgb(158, 158, 158);      
+    }
+    
+    &::before {
+      width: 120px;
+      height: 70px;
+      bottom: -10px;
+      left: 15px;
+    }
+
+    &::after{
+      width: 139px;
+      height: 60px;
+      bottom: -6px;
+      left: 5px;
+    }
+  }
+
+    .btn--logout, .btn--saveChanges{   
+      background-color: rgba(253, 82, 82, 0.253);
+      border: 1px solid rgba(126, 42, 42, 0);   
+      width: 51px;
+      height: 50px;
+      margin: rem(30px 20px 0 20px);
+     
+  
+      &::after, &::before {   
+        background-color: rgba(216, 216, 216, 0);
+        border: 1px solid rgba(163, 62, 62, 0.808);      
+      }
+      
+      &::before {
+        width: 60px;
+        height: 60px;
+        bottom: -5px;
+    left: -4px;
+      }
+  
+      &::after{
+        width: 60px;
+        height: 60px;
+        top: -4px;
+    left: -7px;
+        border: 1px solid rgba(163, 62, 62, 0.808);      
+      }
+      }
+
+
+      .btn--saveChanges{
+        background-color: rgba(82, 253, 105, 0.253);
+
+        &::after, &::before {   
+          background-color: rgba(216, 216, 216, 0);
+          border: 1px solid rgba(82, 253, 105, 0.253);      
+        }
+
+      }

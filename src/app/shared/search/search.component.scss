@@ -1,0 +1,46 @@
+@import '../../../assets/styles/rem';
+@import '../../../assets/styles/variables';
+
+
+.box--search {
+ padding: rem(5px);
+}
+
+.form--search {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: rem(10px);
+    margin-top: rem(3px);
+    position: relative;
+  }
+
+  .form__input {
+    background: transparent;
+    padding: rem(0 45px 0 5px);
+    height: rem(30px);   
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--color-cream);
+    width: 100%;
+    color: white;
+    font-size: var(--ts-l);
+  }
+
+ 
+.btn {
+  position: absolute;  
+  outline: none;  
+top: rem(5px);
+right: rem(15px);
+  &--filter {
+    height: 30px;
+    width: 30px;
+    background-color: transparent;
+  }
+  svg{    
+    height: 30px;
+    width: 30px;
+    fill: rgba(226, 212, 211, 0.699);
+  }
+}

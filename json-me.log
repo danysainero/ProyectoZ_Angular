@@ -1,0 +1,95 @@
+
+0:
+faceAttributes:
+age: 40
+emotion:
+anger: 0
+contempt: 0
+disgust: 0
+fear: 0
+happiness: 0
+neutral: 1
+sadness: 0
+surprise: 0
+facialHair:
+beard: 0.6
+moustache: 0.6
+sideburns: 0.6
+gender: "male"
+glasses: "NoGlasses"
+hair:
+bald: 0.31
+hairColor: Array(6)
+0: {color: "black", confidence: 0.99}
+1: {color: "gray", confidence: 0.86}
+2: {color: "brown", confidence: 0.69}
+3: {color: "other", confidence: 0.45}
+4: {color: "blond", confidence: 0.04}
+5: {color: "red", confidence: 0.01}
+length: 6
+)
+invisible: false
+headPose:
+pitch: 4.5
+roll: 3.2
+yaw: -1
+makeup:
+eyeMakeup: true
+lipMakeup: false
+smile: 0
+faceRectangle: {top: 80, left: 123, width: 167, height: 167}
+length: 1
+)
+
+//* 2nd TRY***************************************************************//
+
+0:
+faceAttributes:
+age: 40
+emotion {
+    anger: 0,
+contempt: 0,
+disgust: 0,
+fear: 0,
+happiness: 0,
+neutral: 0.987,
+sadness: 0.001,
+surprise: 0.012,}
+
+__proto__: Object
+facialHair:
+beard: 0.6
+moustache: 0.6
+sideburns: 0.4
+__proto__: Object
+gender: "male"
+glasses: "NoGlasses"
+hair:
+bald: 0.09
+hairColor: Array(6)
+0: {color: "black", confidence: 1}
+1: {color: "brown", confidence: 0.87}
+2: {color: "gray", confidence: 0.79}
+3: {color: "other", confidence: 0.33}
+4: {color: "blond", confidence: 0.03}
+5: {color: "red", confidence: 0.01}
+length: 6
+__proto__: Array(0)
+invisible: false
+__proto__: Object
+headPose:
+pitch: -9
+roll: -0.4
+yaw: -4.1
+__proto__: Object
+makeup:
+eyeMakeup: true
+lipMakeup: false
+__proto__: Object
+smile: 0
+__proto__: Object
+faceId: "c5ca94ba-d171-4c68-baa0-51171c8487b5"
+faceRectangle: {top: 90, left: 123, width: 175, height: 175}
+__proto__: Object
+length: 1
+__proto__: Array(0)

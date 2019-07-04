@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import './assets/styles/reset';
+@import './assets/styles/rem';
+@import './assets/styles/variables';
+
+@import url('https://fonts.googleapis.com/css?family=Merienda+One&display=swap');
+
+/* .container-index{
+  background: rgba(102, 99, 99, 0.904);
+} */
+body {
+  background-color: var(--color-dark);
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+//snackbar bg modify
+
+.my-snackbar{
+  background: var(--color-dirty);
+  & *{
+    color: var(--color-dark);
+    font-size: var(--ts-l);
+  }
+}
+

@@ -1,0 +1,23 @@
+<div class="box">
+
+  <h2 class="title">Proyecto Z</h2>
+
+  <form class="form" [formGroup]="myForm">
+
+    <div>
+      <label class="form__label" for="username"> User Name * </label>
+      <input [ngClass]="{ 'invalid': invalid }" matInput class="form__input" formControlName="username" type="text" id="username">
+    </div>
+
+    <div>
+      <label class="form__label" for="pass"> Password * </label>
+      <input [ngClass]="{ 'invalid': invalid }" matInput matInput class="form__input" formControlName="pass" type="password" id="pass">
+    </div>
+
+    <div class="button-container">
+      <button class="btn" (click)="submit($event, myForm)" type="button">Verify</button>
+    </div>
+
+  </form>
+
+</div>

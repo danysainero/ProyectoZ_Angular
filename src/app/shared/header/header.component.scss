@@ -1,0 +1,15 @@
+@import '../../../assets/styles/rem';
+@import '../../../assets/styles/variables';
+
+.header {
+  height: rem(60px);
+  background: var(--color-dirty);
+display: flex;
+justify-content: center;
+align-items: center;
+  & h1 {
+    color: var(--color-cream);
+    font-family: var(--ff-logo);
+    font-size: calc( 10px + var(--ts-xl));    
+  }
+}

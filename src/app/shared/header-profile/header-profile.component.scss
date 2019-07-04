@@ -1,0 +1,35 @@
+@import '../../../assets/styles/rem';
+@import '../../../assets/styles/variables';
+
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: rem(50px);
+  background: var(--color-dirty);
+
+  & h2 {
+    padding-left: rem(20px);
+    color: var(--color-cream);
+    font-family: var(--ff-logo);
+    font-size: calc(10px + var(--ts-xl));
+  }
+}
+
+.btn-user {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+background-color: transparent;
+border: none;
+outline: none;
+-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+
+  & svg{
+    height: 30px;
+    width: 30px;
+fill: var(--color-cream);
+  }
+}

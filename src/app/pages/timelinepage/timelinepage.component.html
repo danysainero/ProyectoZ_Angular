@@ -1,0 +1,11 @@
+<app-myheader-profile></app-myheader-profile>
+
+<div class="empty" aria-hidden="true"> </div>
+<!-- accede a la cam del movil -->
+<!-- <input  type="file" class="btn imgSelect mobile" accept="image/*" capture="camera" />  -->
+
+<app-post *ngFor="let post of arrayApiPosts" [post]="post"></app-post>
+
+<div class="empty" aria-hidden="true"> </div>
+
+<app-navbar></app-navbar>

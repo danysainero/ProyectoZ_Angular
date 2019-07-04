@@ -1,0 +1,95 @@
+[{…}]
+0:
+faceAttributes:
+age: 54
+emotion:
+anger: 0.965
+contempt: 0
+disgust: 0
+fear: 0.018
+happiness: 0.001
+neutral: 0
+sadness: 0
+surprise: 0.016
+__proto__: Object
+facialHair:
+beard: 0.1
+moustache: 0.1
+sideburns: 0.1
+__proto__: Object
+gender: "male"
+glasses: "NoGlasses"
+hair:
+bald: 0.74
+hairColor: Array(6)
+0: {color: "gray", confidence: 0.98}
+1: {color: "other", confidence: 0.7}
+2: {color: "black", confidence: 0.66}
+3: {color: "blond", confidence: 0.43}
+4: {color: "brown", confidence: 0.1}
+5: {color: "red", confidence: 0.04}
+length: 6
+__proto__: Array(0)
+invisible: false
+__proto__: Object
+headPose:
+pitch: 1.2
+roll: 3.2
+yaw: -0.5
+__proto__: Object
+makeup:
+eyeMakeup: true
+lipMakeup: true
+__proto__: Object
+smile: 0.001
+__proto__: Object
+faceId: "f2f87317-f4c6-4e41-a08a-1fec1766e869"
+faceRectangle: {top: 58, left: 149, width: 193, height: 193}
+__proto__: Object
+length: 1
+__proto__: Array(0)
+
+
+
+/***2nd TRY*******************************************************************************/
+
+
+0:
+faceAttributes:
+age: 57
+emotion:
+anger: 0.595
+contempt: 0.002
+disgust: 0.009
+fear: 0.006
+happiness: 0.197
+neutral: 0.169
+sadness: 0.01
+surprise: 0.013
+__proto__: Object
+facialHair:
+beard: 0.9
+moustache: 0.9
+sideburns: 0.1
+__proto__: Object
+gender: "male"
+glasses: "NoGlasses"
+hair:
+bald: 0.02
+hairColor: Array(6)
+0: {color: "brown", confidence: 0.97}
+1: {color: "gray", confidence: 0.88}
+2: {color: "black", confidence: 0.84}
+3: {color: "other", confidence: 0.15}
+4: {color: "blond", confidence: 0.08}
+5: {color: "red", confidence: 0.05}
+length: 6
+__proto__: Array(0)
+invisible: false
+__proto__: Object
+headPose: {pitch: -5.2, roll: 3.6, yaw: -3.1}
+makeup:
+eyeMakeup: true
+lipMakeup: false
+__proto__: Object
+smile: 0.197
