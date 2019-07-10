@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UserService } from '../../service/user.service';
 import { ChatserviceService } from 'src/app/service/chatservice.service';
+import { AuthService } from 'src/app/service/auth.service';
 
 
 @Component({
@@ -14,16 +14,13 @@ export class MessagepageComponent implements OnInit {
   
   arrayConversations;
   
-  constructor(private chatserviceService: ChatserviceService) { }
+  constructor(private chatserviceService: ChatserviceService, private authService : AuthService) { }
 
   ngOnInit() {
     this.getConversations();
   }
+  
   async getConversations(){
-    await this.chatserviceService.getConversations().then(data =>{
-      this.arrayConversations =  data;
-    })
-    
-     
+    this.arrayConversations =  await this.chatserviceService.getConversations().then((data)=>{ return data}); 
    }
 }

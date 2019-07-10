@@ -17,8 +17,6 @@ import { SearchComponent } from './shared/search/search.component';
 
 /***************PAGINAS ROUTER****************************************** */
 import { VerifypageComponent } from './pages/verifypage/verifypage.component';
-import { LoginpageComponent } from './pages/loginpage/loginpage.component';
-import { SignpageComponent } from './pages/signpage/signpage.component';
 import { MappageComponent } from './pages/mappage/mappage.component';
 import { MessagepageComponent } from './pages/messagepage/messagepage.component';
 import { FriendspageComponent } from './pages/friendspage/friendspage.component';
@@ -38,14 +36,19 @@ import { ImageUploadModule } from "angular2-image-upload"
 import { FileSelectDirective } from 'ng2-file-upload';
 import { LoginpagelocalComponent } from './pages/loginpagelocal/loginpagelocal.component';
 import { SignpagelocalComponent } from './pages/signpagelocal/signpagelocal.component';
-import { AuthorizationInterceptor } from './interceptors/authorization.interceptor'; 
+import { AuthorizationInterceptor } from './interceptors/authorization.interceptor';
+import { FriendsAddedComponent } from './shared/friends-added/friends-added.component';
+import { ModalHumanoComponent } from './shared/modal-humano/modal-humano.component';
+import { ModalZombieComponent } from './shared/modal-zombie/modal-zombie.component';
+import { ScannerComponent } from './shared/scanner/scanner.component';
+import { MessageComponent } from './shared/message/message.component'; 
 
 const httpInterceptorProviders = [
     {provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true}
 ];
 
 @NgModule({
-  declarations: [
+  declarations: [ 
     AppComponent,
     HeaderComponent,
     HeaderProfileComponent,
@@ -54,8 +57,6 @@ const httpInterceptorProviders = [
     PostComponent,
     MessagesComponent,
     NavbarComponent,
-    LoginpageComponent,
-    SignpageComponent,
     MappageComponent,
     MessagepageComponent,
     FriendspageComponent,
@@ -67,7 +68,12 @@ const httpInterceptorProviders = [
     SettingspageComponent,
     FileSelectDirective,
     LoginpagelocalComponent,
-    SignpagelocalComponent
+    SignpagelocalComponent,
+    FriendsAddedComponent,
+    ModalHumanoComponent,
+    ModalZombieComponent,
+    ScannerComponent,
+    MessageComponent
   ],
   imports: [
     

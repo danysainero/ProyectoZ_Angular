@@ -3,7 +3,7 @@
 <div class="empty" aria-hidden="true"> </div>
 
 <div class="box"> 
-  <form class="form" [formGroup]="myFormRegister" (ngSubmit)="onSubmit()">
+  <form class="form" [formGroup]="myFormRegister" (ngSubmit)="onSubmit($event, myFormRegister)">
 
     <!-- USERNAME INPUT-->
     <div>
@@ -21,11 +21,11 @@
         <div *ngIf="submitted && f.pass.errors" class="invalid-input">         
           <span *ngIf="f.pass.errors.minlength ">Minumum 6 Characters</span>
         </div> </label>
-      <input matInput class="form__input" formControlName="pass" type="text" id="pass">
+      <input matInput class="form__input" formControlName="pass" type="password" id="pass">
     </div>
 
    <!-- FACEID INPUT-->
-   <div class="form__control">
+  <!--  <div class="form__control">
     <label class="form__label" for="faceId"> Face Id </label>
 
     <div class="input">
@@ -43,7 +43,7 @@
      <input matInput class="form__input form__input--faceId" formControlName="faceId" type="text" id="faceId" autocomplete="off">
     </div>
     
-  </div>
+  </div> -->
 
     <!-- JOIN BUTTON -->
     <div class="button-container">

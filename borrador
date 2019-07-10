@@ -1,0 +1,124 @@
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { FriendsService } from 'src/app/service/friends.service';
+import { AuthService } from 'src/app/service/auth.service';
+
+@Component({
+  selector: 'app-friends',
+  templateUrl: './friends.component.html',
+  styleUrls: ['./friends.component.scss']
+})
+export class FriendsComponent implements OnInit {
+
+  actualUserId;
+  added;
+  i;
+  @Input() user;
+  @Input() index;
+
+  constructor(private friendsService: FriendsService, private authService: AuthService) { }
+
+  ngOnInit() {
+    this.i = this.oddOrEven(this.index);
+
+    this.authService.GetActualUser().then((data) => {
+      this.actualUserId = data.user._id;
+    });
+
+  }
+
+  ngAfterContentInit() {
+
+   /*  this.getFriends(); */
+  }
+
+  async addFriend(e, user) {
+    this.added = !this.added;
+    var data = { friendId: user._id, myId: this.actualUserId };
+    await this.friendsService.addFriend(data)
+  }
+
+  async removeFriend(e, user) {
+    /* this.added = !this.added; */
+    var body = { friendId: user._id, myId: this.actualUserId };
+    await this.friendsService.removeFriend(body).then(res => {
+      return;
+    });;
+  }
+
+ /*  async getFriends() {
+    this.authService.GetActualUser().subscribe((data) => {
+      for (let i = 0; i < data.user.friends.length; i++) {
+        console.log(data.user.friends[i]);
+       this.user.adder = true;
+      }
+    });
+  } */
+
+  oddOrEven(x) {
+    return (x & 1) ? "odd" : "even";
+  }
+
+
+}
+
+
+
+
+
+import { Component, OnInit} from '@angular/core';
+import { Subscription } from 'rxjs';
+import { FriendsService } from 'src/app/service/friends.service';
+import { AuthService } from 'src/app/service/auth.service';
+
+@Component({
+  selector: 'app-friendspage',
+  templateUrl: './friendspage.component.html',
+  styleUrls: ['./friendspage.component.scss']
+})
+export class FriendspageComponent implements OnInit{
+
+  arrayNotFriendsUsers;
+  allUsers;
+  friendedUsers;
+  friendsServiceSubscription: Subscription;
+
+  constructor(private friendsService: FriendsService, private authService : AuthService) { }
+
+
+  ngOnInit() {
+    this.getUsers();
+    
+    this.friendsServiceSubscription = this.friendsService.usersFiltered.subscribe(data => {
+      if (data) {    
+        this.arrayNotFriendsUsers = data;        
+      }
+    })
+  }
+
+ngOnDestroy(){
+  if(this.friendsServiceSubscription){
+    this.friendsServiceSubscription.unsubscribe();
+  } 
+  }
+
+  async getUsers() {
+    this.allUsers = await this.friendsService.filterUsers('');
+
+    const user = await this.authService.GetActualUser();
+    this.friendedUsers = user.user.friends
+
+    let notFriends = []; 
+
+    for (let i = 0; i < this.allUsers.length; i++) {
+     
+    for (let k = 0; k < this.friendedUsers.length; k++) {
+
+      if (this.allUsers[i]._id != this.friendedUsers[k]) {    
+        notFriends.push(this.allUsers[i]);
+      }
+      else{ 
+      }
+    }    
+    this.arrayNotFriendsUsers = notFriends;
+  } 
+   

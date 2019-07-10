@@ -2,11 +2,19 @@
 
 <div class="empty"></div>
 
+<app-modal-humano *ngIf="modalShow" [ngClass]="{'modal--show': modalShow}"></app-modal-humano>
+<app-modal-zombie *ngIf="modalShowZombie" [ngClass]="{'modal--show': modalShowZombie}"></app-modal-zombie>
+
 <div class="camera-container" *ngIf="photoTaken">
   <video class="camera-display" #camera autoplay="autoplay"></video>
+  <div class="points-container">
+  <app-scanner></app-scanner>
+</div>
+
 </div>
 
 <div class="canvas-container" [ngClass]="{'hide': photoTaken}">
+  
   <canvas class="canvas-display" #cameraCanvas></canvas>
 </div>
 

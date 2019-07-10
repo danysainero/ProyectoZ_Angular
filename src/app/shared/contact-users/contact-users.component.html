@@ -1,7 +1,8 @@
-<div class="box" (click)="onUserClick($event, user.username)">
+<div class="box" (click)="onUserClick($event, conversation)">
+        <!-- <div class="box" (click)="onUserClick($event, conversation)" [routerLink]="[ '/chat' , conversation.members]"> -->
     <div class="user">      
-        <img src="{{conversation.avatar}}" alt="">
-        <span>{{conversation.username}}</span>
+        <img src="{{receiverUser.avatar}}" alt="">
+      <span>{{receiverUser.username}}</span>
         <span>10/11/2019</span>     
     </div>
   </div>

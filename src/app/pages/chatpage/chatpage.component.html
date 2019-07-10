@@ -1,6 +1,9 @@
 <app-myheader-profile></app-myheader-profile>
 <div class="empty" aria-hidden="true"></div>
 
+<app-message *ngFor="let message of messages" [message]="message"></app-message>
+<div class="empty"></div>
+<!-- 
 <div class="container" *ngFor="let conversation of conversations">
   <div class="message">
     <img class="message__avatar" src="../../../assets/images/gleen.jpg" alt="">
@@ -9,7 +12,7 @@
     </div>
   </div>
 </div>
-
+-->
 
 <section class=" box">
   <form [formGroup]="newChat" class="form-newPost" action="" (ngSubmit)="onSubmit($event, newChat)"> <textarea autosize
@@ -27,6 +30,6 @@
     </button>
   </form>
 </section>
-<div class="empty" aria-hidden="true"> </div>
+<div class="empty" aria-hidden="true"> </div> 
 
 <app-navbar></app-navbar>

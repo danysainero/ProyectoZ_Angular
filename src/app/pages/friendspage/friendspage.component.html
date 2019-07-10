@@ -3,6 +3,8 @@
 <app-navbar></app-navbar>
 <div class="empty" aria-hidden="true"> </div>
 <app-search></app-search>
-<app-friends *ngFor="let user of arrayApiUsers; let i = index" [user]="user" [index]="i"></app-friends>
+
+<app-friends-added *ngFor="let userAdded of arrayFriendsUsers; let i = index" [userAdded]="userAdded" [index]="i"></app-friends-added>
+<app-friends *ngFor="let user of arrayNotFriendsUsers; let i = index" [user]="user" [index]="i"></app-friends>
 
 <div class="empty" aria-hidden="true"> </div>

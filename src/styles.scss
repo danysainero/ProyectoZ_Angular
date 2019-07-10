@@ -21,5 +21,13 @@ body {
     color: var(--color-dark);
     font-size: var(--ts-l);
   }
+  &--settings{
+    position: absolute;
+    margin: 0;    
+    height: 10px;
+    top: rem(43px);
+    left: -8px;
+    background: rgba(82, 253, 105, 0.253);
+  }
 }
 

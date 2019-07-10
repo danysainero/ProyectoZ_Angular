@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ValidatorFn, ValidationErrors, Form } from '@angular/forms';
-import { UserService } from '../../service/user.service';
+import { AuthService } from '../../service/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginpagelocalComponent implements OnInit {
   myForm: any;
   invalid;
-  constructor(private userService: UserService, private fb: FormBuilder, private router: Router,
+  constructor(private authService: AuthService, private fb: FormBuilder, private router: Router,
     private acivateRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -28,8 +28,8 @@ export class LoginpagelocalComponent implements OnInit {
     /* window.location.replace('verify'); */
 
     if (this.myForm.valid) {
-      this.userService.loginUser(this.myForm.value).then((token) => { 
-        this.router.navigate(['../', 'timeline'], {
+      this.authService.loginUser(this.myForm.value).then((token) => { 
+        this.router.navigate(['../', 'verify'], {
           relativeTo: this.acivateRoute
         });     
       

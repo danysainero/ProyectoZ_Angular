@@ -93,3 +93,15 @@ svg{
     }
   }
 }
+
+.modal--hide{
+  opacity: 0;
+}
+
+.points-container{
+  height: calc( 100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}

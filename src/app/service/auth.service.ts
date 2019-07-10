@@ -6,24 +6,17 @@ import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService implements OnInit {
+export class AuthService implements OnInit {
 
   token;
-  usersFiltered = new Subject();
+
 
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
-    /* this.filterUsers(this.searchName); */
+
   }
 
-  filterUsers(searchName) {
-    return this.httpClient.get(`${environment.serverURL}/users?username=${searchName}`).toPromise();
-  }
-
- /*  getUsers() {
-    return this.httpClient.get(`${environment.serverURL}/users`).toPromise();
-  } */
 
   getUsers() {
     return this.httpClient.get(`${environment.serverURL}/users/friends`).toPromise();
@@ -33,15 +26,16 @@ export class UserService implements OnInit {
     return this.httpClient.post(`${environment.serverURL}/auth/sign-up`, body).toPromise();
   }
 
+
   loginUser(body) {
-    return this.httpClient.post(`${environment.serverURL}/auth/login`, body).toPromise().then((res) => {
+    return this.httpClient.post<any>(`${environment.serverURL}/auth/login`, body).toPromise().then((res) => {
       this.token = res.token;
-      localStorage.token = this.token; //aqui va el token
+      localStorage.token = this.token;
     });;
   }
 
-  GetActualUser() {
-    return this.httpClient.get(`${environment.serverURL}/auth/me`)
+  GetActualUser() {       
+    return this.httpClient.get(`${environment.serverURL}/auth/me`).toPromise()
   }
 
   logout() {
@@ -50,10 +44,10 @@ export class UserService implements OnInit {
     return;
   }
 
-  getToken(): string {       
+  getToken(): string {
+    this.token = localStorage.getItem('token');
     return this.token;
   }
-
 
 
 }

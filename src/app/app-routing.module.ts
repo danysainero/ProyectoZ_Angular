@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 /*PAGES***********************************************************************************/
-import { SignpageComponent } from '../app/pages/signpage/signpage.component';
-import { LoginpageComponent } from '../app/pages/loginpage/loginpage.component';
 import { LandingpageComponent } from './pages/landingpage/landingpage.component';
 import { TimelinepageComponent } from './pages/timelinepage/timelinepage.component';
 import { MessagepageComponent } from './pages/messagepage/messagepage.component';
@@ -15,7 +13,7 @@ import { SettingspageComponent } from './pages/settingspage/settingspage.compone
 import { SignpagelocalComponent } from './pages/signpagelocal/signpagelocal.component';
 import { LoginpagelocalComponent } from './pages/loginpagelocal/loginpagelocal.component';
 
-const routes: Routes = [
+const routes: Routes = [ 
   {
     path: 'landing',
     component: LandingpageComponent
@@ -64,10 +62,7 @@ const routes: Routes = [
     path: 'settings',
     component: SettingspageComponent
   },
-  {
-    path: 'logout',
-    component: SignpageComponent
-  },
+ 
   {
     path: '',
     component: LandingpageComponent

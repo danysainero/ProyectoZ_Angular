@@ -19,7 +19,6 @@ export class FaceRecognitionService {
     let params = new HttpParams();
     params.set('returnFaceId', 'true');
     const blob = createBlob(dataURL);
-    const redirect = goTo();//borrar
     return this.http.post(uriBase, blob, { params, headers });
 
     

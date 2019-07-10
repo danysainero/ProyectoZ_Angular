@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TimelineService } from 'src/app/service/timeline.service';
 import { Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { UserService } from 'src/app/service/user.service';
+import { AuthService } from 'src/app/service/auth.service';
 
 
 
@@ -18,12 +18,18 @@ export class TimelinepageComponent implements OnInit, OnDestroy {
   arrayApiPosts;
   urlConection;
   postsServiceSubscription: Subscription;
-  
-  constructor(private timelineService: TimelineService, private userService: UserService, private httpClient: HttpClient) { 
+  actualUserId;
+
+  constructor(private timelineService: TimelineService, private authService: AuthService, private httpClient: HttpClient) { 
     
   }
 
   ngOnInit() {
+
+    this.authService.GetActualUser().then((user)=>{        
+      this.actualUserId =  user['_id'];
+      });
+     
     this.getApiPosts();
     this.postsServiceSubscription = this.timelineService.articles.subscribe(data => {
       if(data) {
@@ -31,12 +37,9 @@ export class TimelinepageComponent implements OnInit, OnDestroy {
       }
     })
 
-    this.urlConection = '192.169.1.55';   
+    this.urlConection = '192.169.1.55';     
+   
     
-    this.userService.GetActualUser().subscribe(data=>{
-      console.log(data);
-      
-    })
   }
 
   ngOnDestroy(){
@@ -47,7 +50,7 @@ export class TimelinepageComponent implements OnInit, OnDestroy {
 
 
   async getApiPosts(){
-    const data = await this.timelineService.getArticles();
+   let data = await this.timelineService.getArticles();
      this.arrayApiPosts =  data;
    }
 

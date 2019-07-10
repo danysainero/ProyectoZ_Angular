@@ -1,0 +1,26 @@
+@import '../../../assets/styles/rem';
+@import '../../../assets/styles/variables';
+
+.container {
+  height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: rem(50px);
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: rem(20px);
+  background: rgba(156, 1, 1, 0.664);
+  color: white;
+  height: rem(100px);
+padding: rem(0 5px);
+transition: all 200ms linear;
+
+  &__msg {
+    font-size: 20px;
+  }
+}

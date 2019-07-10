@@ -20,8 +20,6 @@ export class MessagesComponent implements OnInit {
   }
 
   showMessages(event){
-   this.showMessage = !this.showMessage;
- 
-  
+   this.showMessage = !this.showMessage; 
   }
 }

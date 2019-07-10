@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService} from 'src/app/service/user.service';
+import { AuthService} from 'src/app/service/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -22,7 +22,7 @@ export class SignpagelocalComponent implements OnInit {
   myFormRegister;
   submitted = false;
   
-  constructor(private userService: UserService, private fb: FormBuilder, private router: Router,
+  constructor(private authService: AuthService, private fb: FormBuilder, private router: Router,
     private acivateRoute: ActivatedRoute, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
@@ -44,7 +44,7 @@ export class SignpagelocalComponent implements OnInit {
     /* if (this.myFormRegister.invalid) {
         return;
     }*/
-    this.userService.RegisterUser(this.myFormRegister.value).then(() => {
+    this.authService.RegisterUser(this.myFormRegister.value).then(() => {
       this.openSnackBar('User Created!!!', 'X', 'my-snackbar')
       this.router.navigate(['../', 'login'], {
         relativeTo: this.acivateRoute

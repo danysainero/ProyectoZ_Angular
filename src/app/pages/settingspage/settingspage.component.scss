@@ -26,7 +26,7 @@ legend {
 }
 
 /********************************************
-FORM .form__input & btn import from styles
+FORM .form__input & btn import from button.scss
 *********************************************/
 .form {
   width: 100%;
@@ -45,17 +45,10 @@ FORM .form__input & btn import from styles
     position: absolute;
     width: 90%;
     left: rem(20px);
-    padding-left: rem(65px);
-    
+    padding-left: rem(65px);    
   }
 
 }
-
-/*********Custom Radio buttons**************/
-
-
-
-
 
 /******** Join button Container ***************/
 .button-container {
@@ -69,8 +62,7 @@ FORM .form__input & btn import from styles
 
   &__file {
     position: absolute;
-    left: 0;
-    bottom: 0;
+    left: 0;  
     height: rem(50px);
     width: rem(70px);
     opacity: 0;
@@ -78,7 +70,6 @@ FORM .form__input & btn import from styles
   }
 
   &__custom{ 
-  
     svg{
       height: rem(40px);
     width: rem(40px);
@@ -87,3 +78,4 @@ FORM .form__input & btn import from styles
     }
   }
 }
+

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output} from '@angular/core';
-import { UserService } from 'src/app/service/user.service';
-import { Router } from '@angular/router';
+import { AuthService } from 'src/app/service/auth.service';
+import { ChatserviceService } from 'src/app/service/chatservice.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contact-users',
@@ -11,17 +12,42 @@ import { Router } from '@angular/router';
 export class ContactUsersComponent implements OnInit {
   
   @Input() conversation;
-  constructor() { }
-  
+  privateConversation;
+  senderUser;
+  receiver;
+  receiverUser={};
+  constructor( private authService : AuthService, private activateRoute: ActivatedRoute, private router : Router, private chatserviceService: ChatserviceService) { }
+   
 
-  ngOnInit() {
-    
+  ngOnInit() {    
+    this.findUsersInConversation();
   }
 
+  async findUsersInConversation(){
 
-  /*  onUserClick(e,name){
-     console.log(name);     
-     this.route.navigateByUrl('chat', name);
-   } */
+    let actualUser = await this.authService.GetActualUser().then((user)=> {    
+      return user
+    });
+    
+     if(this.conversation.members.sender === actualUser['_id']){        
+      this.receiver = this.conversation.members.receiver;
+     }else{
+      this.receiver = this.conversation.members.sender;
+     }
+    this.receiverUser =  await this.chatserviceService.findUsersConversation(this.receiver).then((data)=>{ return data});    
+  }
+
+  async onUserClick(e, conversation){
+
+    console.log(conversation.members.sender);
+
+   let conv = await this.chatserviceService.findConversations(conversation.members).then((data)=>{ return data})
+   console.log(conv[0].members);
+   await this.router.navigate(['../', 'chat', conv[0].members], {
+    relativeTo: this.activateRoute
+  });
+   
+  }
 
 } 
+

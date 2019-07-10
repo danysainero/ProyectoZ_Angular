@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, EventEmitter, OnDestroy, Output, ViewChild } from '@angular/core';
 import { FaceRecognitionService } from '../../service/face-recognition.service'
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 })
 export class VerifypageComponent implements OnInit {
 
-  constructor(private faceRecognitionService: FaceRecognitionService, private http: HttpClient) { }
+  constructor(private faceRecognitionService: FaceRecognitionService, private http: HttpClient, private router: Router,
+    private acivateRoute: ActivatedRoute,) { }
 
   @ViewChild('camera') camera: ElementRef;
   @ViewChild('cameraCanvas') cameraCanvas: ElementRef;
@@ -24,11 +26,16 @@ export class VerifypageComponent implements OnInit {
   selectedFile;
   fd = new FormData();
   deviceMobile = false;
+  results;
+  modalShow = false;
+  modalShowZombie = false;
+
 
   ngOnInit() {
     this.deviceMobile = this.detectmob();
-    
-   }
+  }
+
+
 
   onOpenCamera() {
     const constraints = {
@@ -101,16 +108,42 @@ export class VerifypageComponent implements OnInit {
     this.onOpenCamera();
   }
 
-   check() {
+  async check() {
 
     const dataURL = this.cameraCanvas.nativeElement.toDataURL('image/png');
     const myParams = 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup';
-   let verifyJson = this.faceRecognitionService.verify(dataURL, myParams).subscribe((data)=>{
-    console.log(data); 
-     return data;
-   });
-    
+    await this.faceRecognitionService.verify(dataURL, myParams).toPromise()
+      .then((data) => { this.results = data });
+
+    if (this.results[0].faceAttributes.age < 50
+      && this.results[0].faceAttributes.emotion.anger < 0.50
+      && this.results[0].faceAttributes.facialHair.beard > 0.2
+      && this.results[0].faceAttributes.facialHair.moustache > 0 
+    ) {
+      console.log('no eres un zombie');
+      setTimeout(() => {
+        this.modalShow = true;
+      }, 2000);
+      setTimeout(() => {
+        this.router.navigate(['../', 'timeline'], {
+          relativeTo: this.acivateRoute
+        });
+      }, 4500);
+    }else{
+      console.log('No tienes buena cara, !!ZOMBIE¡¡');
+      setTimeout(() => {
+        this.modalShowZombie = true;
+      }, 2000);
+      setTimeout(() => {
+        this.router.navigate(['../', 'landing'], {
+          relativeTo: this.acivateRoute
+        });
+      }, 4500);
+    }
   }
+
+
+
 
 
 
@@ -128,9 +161,9 @@ export class VerifypageComponent implements OnInit {
     let params = new HttpParams();
     params.set('returnFaceId', 'true').set('returnFaceLandmarks', 'false');
 
-     this.http.post(uriBase, this.selectedFile, { params, headers }).subscribe(data =>{
+    this.http.post(uriBase, this.selectedFile, { params, headers }).subscribe(data => {
       console.log(data);
-      
+
     });
 
     /* let verifyJson = this.faceRecognitionService.verify(this.fd, myParams).subscribe((data)=>{
@@ -138,21 +171,19 @@ export class VerifypageComponent implements OnInit {
      });
     
     console.log(verifyJson); */
-  
+
   };
 
 
-   detectmob() { 
-    if( navigator.userAgent.match(/Android/i)    
-    || navigator.userAgent.match(/iPhone/i)    
-    ){
-       return true;
-     }
+  detectmob() {
+    if (navigator.userAgent.match(/Android/i)
+      || navigator.userAgent.match(/iPhone/i)
+    ) {
+      return true;
+    }
     else {
-       return false;
-     }
-   }
- 
-
+      return false;
+    }
+  }
 }
 
