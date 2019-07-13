@@ -11,16 +11,21 @@ import { AuthService } from 'src/app/service/auth.service';
 
 
 export class MessagepageComponent implements OnInit {
-  
+  idReceiver;
+  idSender;
   arrayConversations;
   
   constructor(private chatserviceService: ChatserviceService, private authService : AuthService) { }
 
   ngOnInit() {
     this.getConversations();
+    this.idReceiver = this.chatserviceService.idReceiver;
+    this.idSender = this.chatserviceService.idSender
   }
+
   
   async getConversations(){
     this.arrayConversations =  await this.chatserviceService.getConversations().then((data)=>{ return data}); 
    }
+
 }

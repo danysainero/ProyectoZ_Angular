@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-modal-zombie',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal-zombie.component.scss']
 })
 export class ModalZombieComponent implements OnInit {
+  user;
+  constructor(private authService : AuthService) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  async ngOnInit() {
+    this.user = await this.authService.GetActualUser().then((myUser)=>{
+      this.user = myUser['username'];
+    return this.user;
+    })
   }
 
 }

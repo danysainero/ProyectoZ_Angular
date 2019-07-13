@@ -23,11 +23,11 @@ export class TimelineService implements OnInit {
     return this.httpClient.get(`${environment.serverURL}/posts`).toPromise();
   }
 
-  getUserPosted(body) {
-   return this.httpClient.post(`${environment.serverURL}/postsuser`, body).toPromise()/* .then((data)=>{    
-      return data['username'];
-    }); */
-  }
+  //getUserPosted(body) {
+  // return this.httpClient.post(`${environment.serverURL}/postsuser`, body).toPromise()/* .then((data)=>{    
+  //    return data['username'];
+  //  }); */
+  //}
 
   async setPictures(fd) {
     return await this.httpClient.post(`${environment.serverURL}/posts`, fd).toPromise();

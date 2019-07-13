@@ -14,11 +14,11 @@
   border-radius: 50%;
   height: 50px;
   width: 50px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.911);
+  box-shadow: 1px 1px 3px rgba(245, 245, 245, 0.911);
 }
 
 .message__balloon {
-  width: 70%;
+  width: 80%;
   margin-left: rem(10px);
   padding: rem(10px);
   background-color: var(--color-cream);
@@ -27,30 +27,37 @@
   box-shadow: 3px 3px 1px rgb(8, 8, 8);
 }
 
-.message:nth-child(even) {
-  transform: rotateY(180deg);
-
-  .message__balloon {
-    background-color: rgb(255, 255, 255);
-  }
-
-  p {
-    transform: rotateY(180deg);
-  }
-
-  img {
-    transform: rotateY(180deg);
-  }
-}
-
-.empty {
-  height: rem(60px);
-  background: var(--color-dark);
-}
-
 .message__date{
     text-align: right;
     font-size: rem(12px);
     color: var(--color-dark);
     padding-top: rem(12px);
+}
+
+.sender{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  transform: scale(-1, 1);
+
+  & p{
+    transform: scale(-1, 1); 
+  }
+  .message__avatar {
+  
+    box-shadow: -1px 1px 3px rgba(245, 245, 245, 0.911);
+  }
+  
+}
+
+.receiver{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+
+}
+
+.empty {
+  height: rem(60px);
+  background: var(--color-dark);
 }

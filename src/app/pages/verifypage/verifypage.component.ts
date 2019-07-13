@@ -29,10 +29,12 @@ export class VerifypageComponent implements OnInit {
   results;
   modalShow = false;
   modalShowZombie = false;
-
+  modalGlasses = false; 
+  modalSunGlasses = false;
 
   ngOnInit() {
-    this.deviceMobile = this.detectmob();
+    /* this.deviceMobile = this.detectmob(); */
+    this.onOpenCamera();
   }
 
 
@@ -60,7 +62,6 @@ export class VerifypageComponent implements OnInit {
   }
 
   takePhoto() {
-
     console.log('tomando foto');
     //disable take photo button
     this.snapshotButtonDisabled = !this.snapshotButtonDisabled;
@@ -106,40 +107,61 @@ export class VerifypageComponent implements OnInit {
     this.photoTaken = true;
     this.isCameraOpen = false;
     this.onOpenCamera();
+    this.modalGlasses = false;
+    this.modalShow = false;
+    this.modalShowZombie = false;
+    this.modalSunGlasses = false;
   }
 
   async check() {
-
     const dataURL = this.cameraCanvas.nativeElement.toDataURL('image/png');
     const myParams = 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup';
     await this.faceRecognitionService.verify(dataURL, myParams).toPromise()
       .then((data) => { this.results = data });
 
-    if (this.results[0].faceAttributes.age < 50
-      && this.results[0].faceAttributes.emotion.anger < 0.50
-      && this.results[0].faceAttributes.facialHair.beard > 0.2
-      && this.results[0].faceAttributes.facialHair.moustache > 0 
-    ) {
-      console.log('no eres un zombie');
-      setTimeout(() => {
-        this.modalShow = true;
-      }, 2000);
-      setTimeout(() => {
-        this.router.navigate(['../', 'timeline'], {
-          relativeTo: this.acivateRoute
-        });
-      }, 4500);
-    }else{
-      console.log('No tienes buena cara, !!ZOMBIE¡¡');
-      setTimeout(() => {
-        this.modalShowZombie = true;
-      }, 2000);
-      setTimeout(() => {
-        this.router.navigate(['../', 'landing'], {
-          relativeTo: this.acivateRoute
-        });
-      }, 4500);
-    }
+      if (this.results[0].faceAttributes.glasses === 'ReadingGlasses') {
+        setTimeout(() => {
+          this.modalGlasses = true;
+        }, 2000);
+      }
+
+        else if (this.results[0].faceAttributes.glasses === 'Sunglasses') {
+          setTimeout(() => {
+            this.modalSunGlasses = true;
+          }, 2000);
+
+      }else{
+        if (this.results[0].faceAttributes.age < 50
+          && this.results[0].faceAttributes.gender === 'male'
+        )
+        /* if (this.results[0].faceAttributes.age < 50
+          && this.results[0].faceAttributes.gender === 'male'
+          && this.results[0].faceAttributes.emotion.anger < 0.50
+          && this.results[0].faceAttributes.facialHair.beard > 0.2
+          && this.results[0].faceAttributes.facialHair.moustache > 0 
+        ) */ {
+          setTimeout(() => {
+            this.modalShow = true;
+          }, 2000);
+          setTimeout(() => {
+            this.router.navigate(['../', 'timeline'], {
+              relativeTo: this.acivateRoute
+            });
+          }, 4500);
+        }else{
+          setTimeout(() => {
+            this.modalShowZombie = true;
+          }, 2000);
+          setTimeout(() => {
+            this.router.navigate(['../', 'landing'], {
+              relativeTo: this.acivateRoute
+            });
+          }, 4500);
+        }
+
+      }
+
+  
   }
 
 

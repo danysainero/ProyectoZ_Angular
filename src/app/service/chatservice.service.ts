@@ -8,7 +8,8 @@ import { environment } from 'src/environments/environment';
 })
 export class ChatserviceService implements OnInit{
   
-
+  idReceiver; //from friendspage button
+  idSender;//from friendspage button
   constructor(private route: Router, private httpClient: HttpClient) { }
 
   ngOnInit() {   
@@ -22,7 +23,6 @@ export class ChatserviceService implements OnInit{
       return this.httpClient.post(`${environment.serverURL}/chats/private`, body).toPromise()
     }
  
-
     setConversation(text){           
      return this.httpClient.put(`${environment.serverURL}/chats`, text).toPromise()
     }

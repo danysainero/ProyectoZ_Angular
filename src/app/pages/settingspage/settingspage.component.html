@@ -2,13 +2,13 @@
 
 <div class="empty" aria-hidden="true"> </div>
 
-<div class="box"> 
+<div class="box">
   <form class="form" [formGroup]="myFormRegister" (ngSubmit)="onSubmit($event, myFormRegister)">
 
     <!-- USERNAME INPUT-->
     <div>
       <label class="form__label" for="username"> User Name *
-        <div *ngIf="submitted && f.username.errors" class="invalid-input">        
+        <div *ngIf="submitted && f.username.errors" class="invalid-input">
           <span *ngIf="f.username.errors.minlength">Minumum 4 Characters</span>
         </div>
       </label>
@@ -18,14 +18,20 @@
     <!-- PASS INPUT-->
     <div class="form__control">
       <label class="form__label" for="pass"> Password *
-        <div *ngIf="submitted && f.pass.errors" class="invalid-input">         
+        <div *ngIf="submitted && f.pass.errors" class="invalid-input">
           <span *ngIf="f.pass.errors.minlength ">Minumum 6 Characters</span>
         </div> </label>
       <input matInput class="form__input" formControlName="pass" type="password" id="pass">
+      <span (click)="changeInputType($event)" class="input__eyeIcon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="feather feather-eye">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        </svg></span>
     </div>
 
-   <!-- FACEID INPUT-->
-  <!--  <div class="form__control">
+    <!-- FACEID INPUT-->
+    <!--  <div class="form__control">
     <label class="form__label" for="faceId"> Face Id </label>
 
     <div class="input">
@@ -50,7 +56,7 @@
       <button class="btn btn--logout" type="button" (click)="logOut()">Log out</button>
       <button class="btn btn--saveChanges" type="submit">Save</button>
     </div>
-   
+
 
   </form>
 

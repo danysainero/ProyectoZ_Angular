@@ -2,8 +2,8 @@
   <section class=" box" *ngIf="isOpen">
     <form [formGroup]="newPostForm" class="form-newPost" action="" (ngSubmit)="onSubmit($event, newPostForm)">
      
-      <div class="input">
-        <span class="input__custom">
+      <div class="input"  [ngClass]="{'photoRequired': photoRequired}">
+        <span class="input__custom" >
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
            <path d="M30,20.5c-6.617,0-12,5.383-12,12s5.383,12,12,12s12-5.383,12-12S36.617,20.5,30,20.5z"/>

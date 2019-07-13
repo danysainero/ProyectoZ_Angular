@@ -38,6 +38,12 @@ export class AuthService implements OnInit {
     return this.httpClient.get(`${environment.serverURL}/auth/me`).toPromise()
   }
 
+  GetMyiD() {       
+    return this.httpClient.get(`${environment.serverURL}/auth/me`).toPromise().then((user)=>{
+      return user['_id'];
+    })
+  }
+
   logout() {
     this.token = null;
     localStorage.removeItem('token');

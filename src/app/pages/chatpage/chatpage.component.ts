@@ -14,6 +14,8 @@ export class ChatpageComponent implements OnInit {
   newChat;
   ArrayMessages;
   id;
+  idReceiver; 
+  idSender;
   private sub: any;
   constructor(private fb: FormBuilder, private chatservice: ChatserviceService, private router: Router, private route: ActivatedRoute) { }
 
@@ -22,11 +24,14 @@ export class ChatpageComponent implements OnInit {
       text: ['', Validators.compose([Validators.required])],
     });
 
+    this.idReceiver = this.chatservice.idReceiver;
+    this.idSender = this.chatservice.idSender;
+
+
     this.sub = this.route.params.subscribe(params => {
       this.id = params})
-
     this.getMessages();
-
+    
   }
 
 
@@ -36,10 +41,12 @@ export class ChatpageComponent implements OnInit {
       const data = await this.chatservice.setConversation(newChat.value);
       newChat.reset();
       await this.getMessages();
-    }
+    } 
   }
 
-  async getMessages() {    
+  async getMessages() {   
+    console.log(this.idReceiver,this.idSender);
+    let conversationId = `{${this.idReceiver},${this.idSender}}`
     this.ArrayMessages = await this.chatservice.getConversationsBetweenUsers(this.id).then((data) => { return data });
     this.messages = this.ArrayMessages[0].messages;
   }

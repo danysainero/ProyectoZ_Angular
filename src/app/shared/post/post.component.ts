@@ -25,13 +25,13 @@ export class PostComponent implements OnInit, OnChanges {
 
   ngOnInit() {      
     this.urlConection = `${environment.localIp}`;
-    this.getUserPost();
+    //this.getUserPost();
   }
 
-  async getUserPost(){
+  /* async getUserPost(){
     await this.timelineService.getUserPosted(this.post.userId).then((user)=>{ 
       this.user =  user;
      });   
-  }
+  } */
 
 }

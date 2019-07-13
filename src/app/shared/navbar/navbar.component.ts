@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   isOpen: boolean = false;
   newPostForm;
   selectedFile;
+  photoRequired; //mete clase css a botón de camara cuando no se ha elegido una foto
   fd = new FormData();
 
   constructor(private timelineService: TimelineService, private fb: FormBuilder, private httpClient: HttpClient) { }
@@ -31,15 +32,32 @@ export class NavbarComponent implements OnInit {
 
   async onSubmit(e, newPostForm) {
 
-    this.httpClient.post(`${environment.serverURL}/posts/picture`, this.fd).subscribe();
-    this.httpClient.post(`${environment.serverURL}/posts`, newPostForm.value).subscribe((post) => {
+    if (newPostForm.value['file'] && newPostForm.value['file'] !== '') {
+      await this.httpClient.post(`${environment.serverURL}/posts/picture`, this.fd).subscribe();
+      await this.httpClient.post(`${environment.serverURL}/posts`, newPostForm.value).subscribe();
       this.timelineService.getArticles().then(data => {
         this.timelineService.articles.next(data);
       })
-    })
-
-    newPostForm.reset();
-    this.isOpen = !this.isOpen;
+      this.isOpen = !this.isOpen;
+      newPostForm.reset();
+    }
+else{
+  this.photoRequired = true;
+  setTimeout(() => {
+    this.photoRequired = false;
+  }, 2000);
+}
+    /* if (newPostForm.value['text'] != '' && newPostForm.value['text'] != null) {
+      console.log('posteo solo texto');
+      console.log(newPostForm.value['text']);      
+      await this.httpClient.post(`${environment.serverURL}/posts`, newPostForm.value).subscribe((post) => {
+        this.timelineService.getArticles().then(data => {
+          this.timelineService.articles.next(data);
+        })
+      })   
+      this.isOpen = !this.isOpen;   
+    }*/ 
+    
   }
 
   createFormData(inputfiles) {

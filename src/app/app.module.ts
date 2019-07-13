@@ -41,7 +41,9 @@ import { FriendsAddedComponent } from './shared/friends-added/friends-added.comp
 import { ModalHumanoComponent } from './shared/modal-humano/modal-humano.component';
 import { ModalZombieComponent } from './shared/modal-zombie/modal-zombie.component';
 import { ScannerComponent } from './shared/scanner/scanner.component';
-import { MessageComponent } from './shared/message/message.component'; 
+import { MessageComponent } from './shared/message/message.component';
+import { ModalGlassesComponent } from './shared/modal-glasses/modal-glasses.component';
+import { ModalSunGlassesComponent } from './shared/modal-sun-glasses/modal-sun-glasses.component'; 
 
 const httpInterceptorProviders = [
     {provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true}
@@ -73,7 +75,9 @@ const httpInterceptorProviders = [
     ModalHumanoComponent,
     ModalZombieComponent,
     ScannerComponent,
-    MessageComponent
+    MessageComponent,
+    ModalGlassesComponent,
+    ModalSunGlassesComponent
   ],
   imports: [
     

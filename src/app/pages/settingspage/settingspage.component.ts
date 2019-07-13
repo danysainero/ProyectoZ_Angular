@@ -18,7 +18,7 @@ export class SettingspageComponent implements OnInit {
   setAutoHide: boolean = true;
   autoHide: number = 2000;
   addExtraClass: boolean = false;
-
+  toogleTypeInput: boolean = true; //cambia el typo de input de pass a text
 
   constructor(private authService: AuthService, private fb: FormBuilder, private router: Router,
     private acivateRoute: ActivatedRoute, private snackBar: MatSnackBar, private settingsService: SettingsService) { }
@@ -63,6 +63,15 @@ export class SettingspageComponent implements OnInit {
     });
   }
 
+  changeInputType(event){  
+
+    if (this.toogleTypeInput) {
+      event.path[3].childNodes[1].type = 'text'; 
+    }else{
+      event.path[3].childNodes[1].type = 'password';
+    }
+      this.toogleTypeInput = !this.toogleTypeInput;    
+  }
 
   openSnackBar(message: string, action: string, className: string) {
     this.snackBar.open(message, action, {

@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
-  selector: 'app-modal-humano',
-  templateUrl: './modal-humano.component.html',
-  styleUrls: ['./modal-humano.component.scss']
+  selector: 'app-modal-sun-glasses',
+  templateUrl: './modal-sun-glasses.component.html',
+  styleUrls: ['./modal-sun-glasses.component.scss']
 })
-export class ModalHumanoComponent implements OnInit {
-user
+export class ModalSunGlassesComponent implements OnInit {
+user;
   constructor(private authService : AuthService) { }
 
   async ngOnInit() {

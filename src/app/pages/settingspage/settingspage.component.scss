@@ -48,6 +48,20 @@ FORM .form__input & btn import from button.scss
     padding-left: rem(65px);    
   }
 
+  .input__eyeIcon{
+    position: absolute;
+    right: rem(40px);
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    svg{
+      height: 40px;
+      width: 40px;
+      fill: var(--color-dark);   
+      color:  var(--color-dirty); 
+    }
+  }
+
 }
 
 /******** Join button Container ***************/

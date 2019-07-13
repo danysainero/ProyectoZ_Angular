@@ -1,4 +1,4 @@
-<div class="message">
+<div class="message" [ngClass]="{'sender': i === 'sender', 'receiver': i === 'receiver'}">
   <img class="message__avatar" src="{{senderUser.avatar}}" alt="">
   <div class="message__balloon">
     <p>{{message.body}}</p>

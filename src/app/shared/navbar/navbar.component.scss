@@ -90,3 +90,15 @@ NEW POST BOX
   }
 }
 
+.photoRequired{
+  border-radius: rem(5px);
+  animation: photoRequired 2s;
+}
+
+@keyframes photoRequired{
+  0% { background: rgba(148, 7, 7, 0); }
+  10% { background: rgba(148, 7, 7, 0.534); }
+  30% { background: rgba(148, 7, 7, 0); }
+  60% { background: rgba(148, 7, 7, 0.534); }
+  100% { background: rgba(148, 7, 7, 0);}
+}
