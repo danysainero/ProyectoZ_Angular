@@ -2,30 +2,15 @@
 <app-navbar></app-navbar>
 <div class="container">
 
-  <agm-map 
-  [latitude]="lat"
-  [longitude]="lng"
-  [zoom]="zoom"
-  [disableDefaultUI]="true"
-  [zoomControl]="false"  
-  (mapClick)="mapClicked($event)">
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="true" [zoomControl]="false">
 
-  <agm-marker 
-      *ngFor="let marker of markers"   
-      [label]="labelOptions"   
-      [iconUrl]="icon"   
-      [latitude]="marker.lat"
-      [longitude]="marker.lng"
-      (markerClick)="markerClicked($event)">
-    </agm-marker>
-  
-  <!-- <agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
-      [radius]="5000"
-      [fillColor]="'red'"
-      [circleDraggable]="true"
-      [editable]="true">
-  </agm-circle> -->
+    <agm-marker class="mapMarker" *ngFor="let marker of marker"
+     [iconUrl]="{url: marker.icon,
+        scaledSize: {
+            width: 40,
+            height: 40
+        }}"
+     [latitude]="marker.lat" [longitude]="marker.lng"></agm-marker>
+  </agm-map>
 
-</agm-map>
-    
-  </div>
+</div>

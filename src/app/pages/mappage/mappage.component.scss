@@ -15,4 +15,15 @@
   agm-map {
     height: 800px;    
     width: 100%;
+
+    .mapMarker{
+      border: 10px solid red;
+      border-radius: 50%;
+    }
   }
+
+  .mapMarker{
+    border: 10px solid red;
+    border-radius: 50%;
+  }
+ 

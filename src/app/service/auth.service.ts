@@ -35,7 +35,7 @@ export class AuthService implements OnInit {
   }
 
   GetActualUser() {       
-    return this.httpClient.get(`${environment.serverURL}/auth/me`).toPromise()
+    return  this.httpClient.get(`${environment.serverURL}/auth/me`).toPromise()
   }
 
   GetMyiD() {       

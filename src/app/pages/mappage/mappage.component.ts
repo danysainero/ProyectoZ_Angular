@@ -1,44 +1,63 @@
 import { Component, OnInit, Output, Input, SimpleChanges } from '@angular/core';
 import { MapsServiceService } from 'src/app/service/maps-service.service';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-mappage',
   templateUrl: './mappage.component.html',
   styleUrls: ['./mappage.component.scss']
 })
-export class MappageComponent {
-  markers;
-  iconBase = 'https://picsum.photos/id/222/100/100';
-  constructor(private mapsServiceService: MapsServiceService) { }
 
-  ngOnInit() {
-    this.mapsServiceService.getMapPoints().then((data) => {
-      this.markers = data;
+export class MappageComponent {
+
+  zoom: number = 15;
+  lat: number;
+  lng: number;
+
+  marker = [];
+  me;
+  pos;
+  icon = {};
+  myPosition;
+
+  constructor(private mapsServiceService: MapsServiceService, private authService: AuthService) { }
+
+  async ngOnInit() {
+    this.pos = await this.getMe().then((pos) => {
+      return pos
     });
   }
 
 
-  // initial center position for the map
-  zoom: number = 15;
-  lat: number = 40.39095112416511;
-  lng: number = -3.722364206621137;
+  async getMe() {
 
-  mapClicked(event) {
-    this.mapsServiceService.addMapPoints(event.coords);
+    this.me = await this.authService.GetActualUser().then((user) => {
+      return user;
+    })
+
+    this.myPosition = await this.mapsServiceService.getPosition().then(pos => {
+      return pos;
+    });
+
+    this.mapsServiceService.setPosition(this.myPosition).then(pos => {
+    });
+
+    this.pos = await this.mapsServiceService.getMapPoints().then(pos => {
+      for (let key in pos) {
+        this.marker.push(pos[key]);
+      }      
+      return pos;
+    });
+    
+    this.lat = this.myPosition.lat;
+    this.lng = this.myPosition.lng;
+
+    this.pos = await this.mapsServiceService.getMapPoints().then(pos => {
+      for (let key in pos) {
+        this.marker.push(pos[key]);
+      }
+      return pos;
+    });
   }
-
-  markerClicked(e) {
-    console.log(e);
-  }
- 
-
-
-  icon = {
-    url: 'https://assets.dryicons.com/uploads/icon/preview/11516/icon_grid_1x_a14933eb-d5a5-4b48-9d6c-075a56e521cd.png',
-    scaledSize: {
-      height: 30, width: 30
-    }
-  }
-
 
 }

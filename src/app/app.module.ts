@@ -44,6 +44,7 @@ import { ScannerComponent } from './shared/scanner/scanner.component';
 import { MessageComponent } from './shared/message/message.component';
 import { ModalGlassesComponent } from './shared/modal-glasses/modal-glasses.component';
 import { ModalSunGlassesComponent } from './shared/modal-sun-glasses/modal-sun-glasses.component'; 
+import { environment } from 'src/environments/environment';
 
 const httpInterceptorProviders = [
     {provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true}
@@ -94,7 +95,7 @@ const httpInterceptorProviders = [
     MatSnackBarModule,
     ImageUploadModule,    
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: `${environment.gmAPI}`
     })
   ],
   providers: [    
